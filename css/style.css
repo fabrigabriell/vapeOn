@@ -237,6 +237,71 @@ body {
     font-size: 2rem;
     margin-bottom: 30px;
 }
+@media (max-width: 1024px) {
+    .sobre-nosotros h3 {
+        font-size: 30px;
+    }
+
+    .sobre-nosotros form {
+        padding: 15px;
+    }
+
+    .sobre-nosotros form input,
+    .sobre-nosotros form textarea {
+        font-size: 14px;
+    }
+
+    .sobre-nosotros form button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sobre-nosotros h3 {
+        font-size: 28px;
+    }
+
+    .sobre-nosotros h5 {
+        font-size: 16px;
+    }
+
+    .sobre-nosotros form {
+        padding: 10px;
+    }
+
+    .sobre-nosotros form input,
+    .sobre-nosotros form textarea {
+        font-size: 14px;
+    }
+
+    .sobre-nosotros form button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sobre-nosotros h3 {
+        font-size: 24px;
+    }
+
+    .sobre-nosotros h5 {
+        font-size: 14px;
+    }
+
+    .sobre-nosotros form {
+        padding: 10px;
+    }
+
+    .sobre-nosotros form input,
+    .sobre-nosotros form textarea {
+        font-size: 14px;
+    }
+
+    .sobre-nosotros form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
 /* Sobre Nosotros */
 
 /* Pie de página */
