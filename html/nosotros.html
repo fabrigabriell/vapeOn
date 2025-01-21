@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenidos a VapeOn. Ofrecemos productos de vapeo de la mejor calidad. Explora nuestro catálogo y contáctanos para más información.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <div class="container-fluid">
+                <a href="/index.html" class="navbar-brand title-link">VapeOn</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="sobre-nosotros py-5">
+        <div class="container">
+            <h3 class="text-center mb-4" style="color: #0c46e7;">Sobre Nosotros</h3>
+            <p class="text-center mb-4">Somos un emprendimiento dedicado a ofrecer productos de vapeo de alta calidad. Conoce más sobre nuestra misión, visión y valores.</p>
+
+            <!-- Misión -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Misión</h5>
+                    <p>Somos una empresa comprometida con ofrecer productos de vapeo que brinden una experiencia única, priorizando la calidad, el servicio al cliente y la innovación constante.</p>
+                </div>
+
+                <!-- Visión -->
+                <div class="col-md-6">
+                    <h5>Visión</h5>
+                    <p>Convertirnos en la marca líder en el mercado de vapeo, siendo reconocidos por la excelencia en la calidad de nuestros productos y la satisfacción de nuestros clientes.</p>
+                </div>
+            </div>
+
+            <!-- Valores -->
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Calidad</h5>
+                    <p>Priorizamos la calidad en cada uno de nuestros productos para garantizar una experiencia óptima para nuestros clientes.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Innovación</h5>
+                    <p>Estamos en constante búsqueda de nuevas soluciones y productos que mejoren la experiencia de nuestros clientes.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Servicio al Cliente</h5>
+                    <p>Nos enfocamos en ofrecer un excelente servicio al cliente, brindando asesoramiento y soporte en cada etapa de la compra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel de Marcas -->
+<section class="brands-carousel py-5">
+    <div class="container">
+        <h3 class="text-center mb-4">Marcas con las que Trabajamos</h3>
+        <div id="brandsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <!-- Marca 1 -->
+                <div class="carousel-item active">
+                    <img src="/img/marcas/elf.jpg" class="d-block w-100" alt="Marca 1" style="max-height: 150px; object-fit: contain;">
+                </div>
+                <!-- Marca 2 -->
+                <div class="carousel-item">
+                    <img src="/img/marcas/geek.jpg" class="d-block w-100" alt="Marca 2" style="max-height: 150px; object-fit: contain;">
+                </div>
+                <!-- Marca 3 -->
+                <div class="carousel-item">
+                    <img src="/img/marcas/pyne.jpg" class="d-block w-100" alt="Marca 3" style="max-height: 150px; object-fit: contain;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#brandsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#brandsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 VapeOn. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
