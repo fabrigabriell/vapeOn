@@ -304,6 +304,101 @@ body {
 }
 /* Sobre Nosotros */
 
+/* Estilos para Detalles */
+.navbar-custom {
+    background-color: #343a40;
+}
+
+.title-link {
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+.detalle-producto {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.reseñas {
+    margin-top: 20px;
+}
+
+.reseña {
+    border-bottom: 1px solid #e9ecef;
+    padding: 10px 0;
+}
+
+.producto {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Estilos para la sección del carrito */
+.carrito {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.carrito h3 {
+    font-size: 36px;
+    color: #0c46e7;
+    margin-bottom: 30px;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #0c46e7;
+    color: white;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table img {
+    max-width: 100px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
 /* Pie de página */
 footer {
     background-color: #0c46e7;
