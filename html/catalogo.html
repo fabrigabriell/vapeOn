@@ -56,51 +56,32 @@
     <section class="catalogo py-5">
         <div class="container">
             <h3 class="text-center mb-4" style="color: #0c46e7;">Catálogo de Productos</h3>
-            <div class="filtros">
+            <div class="filtros mb-4">
                 <div>
                     <label for="marca" class="form-label">Marca:</label>
                     <select id="marca" class="form-select" onchange="filtrarProductos()">
                         <option value="">Todas</option>
-                        <option value="marca1">Marca 1</option>
-                        <option value="marca2">Marca 2</option>
-                        <option value="marca3">Marca 3</option>
+                        <option value="Brand A">Marca A</option>
+                        <option value="Brand B">Marca B</option>
+                        <option value="Brand C">Marca C</option>
+                        <option value="Brand D">Marca D</option>
+                        <option value="Brand E">Marca E</option>
+                        <option value="Brand F">Marca F</option>
+                        <option value="Brand G">Marca G</option>
+                        <option value="Brand H">Marca H</option>
                     </select>
                 </div>
                 <div>
                     <label for="tipo" class="form-label">Tipo de Vape:</label>
                     <select id="tipo" class="form-select" onchange="filtrarProductos()">
                         <option value="">Todos</option>
-                        <option value="vape1">Vape 1</option>
-                        <option value="vape2">Vape 2</option>
-                        <option value="vape3">Vape 3</option>
+                        <option value="Dispositivo">Dispositivo</option>
+                        <option value="Líquido">Líquido</option>
+                        <option value="Accesorio">Accesorio</option>
                     </select>
                 </div>
             </div>
-            <div class="productos">
-                <div class="producto">
-                    <a href="detalle_producto.html">
-                        <img src="../img/img4.jpg" alt="Dispositivo Vape" class="img-fluid">
-                        <h3>Dispositivo Vape A</h3>
-                        <p>$50.00</p>
-                    </a>
-                    <a href="carrito.html" class="btn btn-primary">Agregar al Carrito</a>
-                </div>
-                <div class="producto">
-                    <a href="detalle_producto.html">
-                        <img src="../img/img5.jpg" alt="Líquido Vape" class="img-fluid">
-                        <h3>Líquido Vape B</h3>
-                        <p>$25.00</p>
-                    </a>
-                    <a href="carrito.html" class="btn btn-primary">Agregar al Carrito</a>
-                </div>
-                <div class="producto">
-                    <a href="detalle_producto.html">
-                        <img src="../img/img6.jpg" alt="Accesorio Vape" class="img-fluid">
-                        <h3>Accesorio Vape C</h3>
-                        <p>$15.00</p>
-                    </a>
-                    <a href="carrito.html" class="btn btn-primary">Agregar al Carrito</a>
-                </div>
+            <div class="row" id="productos-container">
             </div>
         </div>
     </section>
@@ -110,5 +91,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>

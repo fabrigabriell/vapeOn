@@ -1,75 +1,86 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const productos = document.querySelectorAll(".producto");
-    const filtros = document.querySelectorAll(".dropdown-content a");
+    cargarProductos();
 
-    filtros.forEach(filtro => {
-        filtro.addEventListener("click", (e) => {
-            e.preventDefault();
-            const filtroCaladas = filtro.textContent;
+    const marcaSelect = document.getElementById("marca");
+    const tipoSelect = document.getElementById("tipo");
 
-            productos.forEach(producto => {
-                const caladas = producto.querySelector("p").textContent;
-                producto.style.display = caladas.includes(filtroCaladas) ? "block" : "none";
-            });
-        });
-    });
-});
-const botonesCarrito = document.querySelectorAll(".agregar-carrito");
+    if (marcaSelect) {
+        marcaSelect.addEventListener("change", filtrarProductos);
+    }
 
-botonesCarrito.forEach(boton => {
-    boton.addEventListener("click", () => {
-        alert("Producto agregado al carrito");
-    });
+    if (tipoSelect) {
+        tipoSelect.addEventListener("change", filtrarProductos);
+    }
+
 });
 
-const canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const particles = Array(100).fill().map(() => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    size: Math.random() * 3 + 1,
-    speed: Math.random() * 2 + 0.5,
-}));
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
-        ctx.fill();
-        p.y -= p.speed;
-        if (p.y < 0) p.y = canvas.height;
-    });
-    requestAnimationFrame(animate);
+function cargarProductos() {
+    fetch('../api/productos.json') 
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la red');
+            }
+            return response.json();
+        })
+        .then(data => {
+            mostrarProductos(data);
+        })
+        .catch(error => console.error('Error al cargar el JSON:', error));
 }
 
-animate();
 
-const botonTema = document.getElementById("toggle-tema");
-botonTema.addEventListener("click", () => {
-    document.body.classList.toggle("tema-oscuro");
-});
+function mostrarProductos(productos) {
+    const container = document.getElementById('productos-container');
+    container.innerHTML = '';
+    productos.forEach(producto => {
+        const card = document.createElement('div');
+        card.className = 'col-12 col-md-4 mb-4';
+        card.innerHTML = `
+            <div class="card producto" onclick="window.location.href='detalle_producto.html?id=${producto.id}'" style="cursor: pointer;">
+                <img src="${producto.image}" class="card-img-top" alt="${producto.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.name}</h5>
+                    <p class="card-text">Precio: $${producto.price.toFixed(2)}</p>
+                    <p class="card-text">Stock: ${producto.stock}</p>
+                    <p class="card-text">Puffs: ${producto.puffs}</p>
+                    <p class="card-text">Marca: ${producto.brand}</p>
+                    <button class="btn btn-primary agregar-carrito" data-id="${producto.id}">Agregar al Carrito</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
 
-// Función para filtrar productos
+    const botonesCarrito = container.querySelectorAll(".agregar-carrito");
+    botonesCarrito.forEach(boton => {
+        boton.addEventListener("click", (event) => {
+            event.stopPropagation();
+            alert("Producto agregado al carrito");
+        });
+    });
+}
+
+
+    const botonesCarrito = container.querySelectorAll(".agregar-carrito");
+    botonesCarrito.forEach(boton => {
+        boton.addEventListener("click", () => {
+            alert("Producto agregado al carrito");
+        });
+    });
+
 function filtrarProductos() {
     const marca = document.getElementById("marca").value;
     const tipo = document.getElementById("tipo").value;
-    const productos = document.querySelectorAll(".producto");
 
-    productos.forEach(producto => {
-        const productoMarca = producto.getAttribute("data-marca");
-        const productoTipo = producto.getAttribute("data-tipo");
-
-        if ((marca === "" || productoMarca === marca) && (tipo === "" || productoTipo === tipo)) {
-            producto.style.display = "block";
-        } else {
-            producto.style.display = "none";
-        }
-    });
+    fetch('../api/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const productosFiltrados = data.filter(producto => {
+                const marcaCoincide = marca === "" || producto.brand === marca;
+                const tipoCoincide = tipo === "" || producto.type === tipo;
+                return marcaCoincide && tipoCoincide;
+            });
+            mostrarProductos(productosFiltrados);
+        })
+        .catch(error => console.error('Error al cargar el JSON:', error));
 }

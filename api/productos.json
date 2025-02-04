@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Vape Device A",
+        "price": 50.00,
+        "image": "../img/img4.jpg",
+        "stock": 100,
+        "puffs": 300,
+        "brand": "Brand A"
+    },
+    {
+        "id": 2,
+        "name": "Vape Liquid B",
+        "price": 25.00,
+        "image": "../img/img5.jpg",
+        "stock": 50,
+        "puffs": 200,
+        "brand": "Brand B"
+    },
+    {
+        "id": 3,
+        "name": "Vape Accessory C",
+        "price": 15.00,
+        "image": "../img/img6.jpg",
+        "stock": 75,
+        "puffs": 0,
+        "brand": "Brand C"
+    },
+    {
+        "id": 4,
+        "name": "Vape Device D",
+        "price": 60.00,
+        "image": "../img/img7.jpg",
+        "stock": 30,
+        "puffs": 400,
+        "brand": "Brand D"
+    },
+    {
+        "id": 5,
+        "name": "Vape Liquid E",
+        "price": 20.00,
+        "image": "../img/img8.jpg",
+        "stock": 80,
+        "puffs": 150,
+        "brand": "Brand E"
+    },
+    {
+        "id": 6,
+        "name": "Vape Device F",
+        "price": 55.00,
+        "image": "../img/img9.jpg",
+        "stock": 60,
+        "puffs": 350,
+        "brand": "Brand F"
+    },
+    {
+        "id": 7,
+        "name": "Vape Liquid G",
+        "price": 30.00,
+        "image": "../img/img10.jpg",
+        "stock": 40,
+        "puffs": 250,
+        "brand": "Brand G"
+    },
+    {
+        "id": 8,
+        "name": "Vape Accessory H",
+        "price": 10.00,
+        "image": "../img/img11.jpg",
+        "stock": 90,
+        "puffs": 0,
+        "brand": "Brand H"
+    }
+]
