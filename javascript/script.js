@@ -1,4 +1,7 @@
+let carrito = [];
+
 document.addEventListener("DOMContentLoaded", () => {
+    cargarCarrito();
     cargarProductos();
 
     const marcaSelect = document.getElementById("marca");
@@ -11,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (tipoSelect) {
         tipoSelect.addEventListener("change", filtrarProductos);
     }
-
 });
 
 function cargarProductos() {
@@ -27,7 +29,6 @@ function cargarProductos() {
         })
         .catch(error => console.error('Error al cargar el JSON:', error));
 }
-
 
 function mostrarProductos(productos) {
     const container = document.getElementById('productos-container');
@@ -55,18 +56,30 @@ function mostrarProductos(productos) {
     botonesCarrito.forEach(boton => {
         boton.addEventListener("click", (event) => {
             event.stopPropagation();
+            const id = parseInt(boton.getAttribute("data-id"));
+            agregarAlCarrito(id);
             alert("Producto agregado al carrito");
         });
     });
 }
 
-
-    const botonesCarrito = container.querySelectorAll(".agregar-carrito");
-    botonesCarrito.forEach(boton => {
-        boton.addEventListener("click", () => {
-            alert("Producto agregado al carrito");
-        });
-    });
+function agregarAlCarrito(id) {
+    const producto = carrito.find(item => item.id === id);
+    if (producto) {
+        producto.quantity += 1;
+    } else {
+        fetch('../api/productos.json')
+            .then(response => response.json())
+            .then(data => {
+                const nuevoProducto = data.find(p => p.id === id);
+                if (nuevoProducto) {
+                    carrito.push({ ...nuevoProducto, quantity: 1 });
+                    guardarCarrito();
+                }
+            })
+            .catch(error => console.error('Error al cargar el JSON:', error));
+    }
+}
 
 function filtrarProductos() {
     const marca = document.getElementById("marca").value;
@@ -83,4 +96,15 @@ function filtrarProductos() {
             mostrarProductos(productosFiltrados);
         })
         .catch(error => console.error('Error al cargar el JSON:', error));
+}
+
+function guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function cargarCarrito() {
+    const carritoGuardado = localStorage.getItem('carrito');
+    if (carritoGuardado) {
+        carrito = JSON.parse(carritoGuardado);
+    }
 }
