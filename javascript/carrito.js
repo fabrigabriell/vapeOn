@@ -1,73 +1,168 @@
-// Simulación de datos del carrito
-let carrito = [
-    { id: 1, name: "Dispositivo Vape A", price: 50.00, quantity: 1, image: "../img/img4.jpg" },
-    { id: 2, name: "Líquido Vape B", price: 25.00, quantity: 1, image: "../img/img5.jpg" }
-];
+class CarritoManager {
+    static STORAGE_KEY = 'carrito';
 
-// Función para renderizar el carrito
-function renderizarCarrito() {
-    const tbody = document.querySelector("tbody");
-    tbody.innerHTML = ''; // Limpiar el contenido actual
+    static cargar() {
+        try {
+            const carrito = JSON.parse(localStorage.getItem(this.STORAGE_KEY)) || [];
+            console.log("Carrito cargado:", carrito);
+            return carrito;
+        } catch (error) {
+            console.error("Error al cargar el carrito:", error);
+            return [];
+        }
+    }
 
-    let total = 0;
+    static guardar(carrito) {
+        try {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(carrito));
+            console.log("Carrito guardado:", carrito);
+        } catch (error) {
+            console.error("Error al guardar el carrito:", error);
+        }
+    }
 
-    carrito.forEach(item => {
-        const totalItem = item.price * item.quantity;
-        total += totalItem;
+    static agregarProducto(producto) {
+        const carrito = this.cargar();
+        const index = carrito.findIndex(item => item.id === producto.id);
 
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>
-                <img src="${item.image}" alt="${item.name}" class="img-fluid product-img">
-                <span class="product-name">${item.name}</span>
-            </td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td>
-                <input type="number" value="${item.quantity}" min="1" class="form-control quantity-input" data-id="${item.id}">
-            </td>
-            <td>$${totalItem.toFixed(2)}</td>
-            <td><button class="btn btn-danger" data-id="${item.id}">Eliminar</button></td>
-        `;
-        tbody.appendChild(row);
-    });
+        if (index === -1) {
+            carrito.push(producto);
+        } else {
+            carrito[index].quantity += producto.quantity;
+        }
 
-    // Actualizar el total en el resumen del carrito
-    document.querySelector('.cart-summary p').innerText = `Total: $${total.toFixed(2)}`;
-}
+        this.guardar(carrito);
+        if (this.esPaginaCarrito()) {
+            this.actualizarUI();
+        }
+    }
 
-// Función para manejar la eliminación de un producto
-function eliminarProducto(id) {
-    carrito = carrito.filter(item => item.id !== id);
-    renderizarCarrito();
-}
+    static eliminarProducto(id) {
+        const carrito = this.cargar();
+        const index = carrito.findIndex(item => item.id == id);
+        
+        if (index !== -1) {
+            if (carrito[index].quantity > 1) {
+                carrito[index].quantity--;
+                console.log(`Reducida una unidad del producto ${carrito[index].name}`);
+            } else {
+                carrito.splice(index, 1);
+                console.log(`Eliminado el producto del carrito`);
+            }
+            
+            this.guardar(carrito);
+            if (this.esPaginaCarrito()) {
+                this.actualizarUI();
+            }
+        }
+    }
 
-// Función para manejar la actualización de la cantidad
-function actualizarCantidad(id, cantidad) {
-    const item = carrito.find(item => item.id === id);
-    if (item) {
-        item.quantity = cantidad;
-        renderizarCarrito();
+    static vaciarCarrito() {
+        this.guardar([]); // Guardar un carrito vacío
+        if (this.esPaginaCarrito()) {
+            this.actualizarUI();
+        }
+    }
+
+    static actualizarUI() {
+        if (!this.esPaginaCarrito()) {
+            return;
+        }
+
+        const carrito = this.cargar();
+        const productosContainer = document.getElementById("productos-container");
+        const cartSummary = document.querySelector(".cart-summary p");
+        
+        if (!productosContainer) {
+            console.error("Contenedor de productos no encontrado");
+            return;
+        }
+
+        productosContainer.innerHTML = "";
+        let totalCarrito = 0;
+
+        carrito.forEach(producto => {
+            const subtotal = producto.price * producto.quantity;
+            totalCarrito += subtotal;
+
+            const fila = document.createElement("tr");
+            fila.innerHTML = `
+                <td>${producto.name}</td>
+                <td>$${producto.price.toFixed(2)}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <input type="number" 
+                               class="form-control quantity-input" 
+                               data-id="${producto.id}" 
+                               value="${producto.quantity}" 
+                               min="1" 
+                               max="${producto.stock || 99}">
+                    </div>
+                </td>
+                <td>$${subtotal.toFixed(2)}</td>
+                <td class="text-end"> <!-- Alineación a la derecha -->
+                    <button class="btn btn-danger btn-sm eliminar-producto" 
+                            data-id="${producto.id}" 
+                            title="Eliminar una unidad">
+                        -1
+                    </button>
+                </td>
+            `;
+            productosContainer.appendChild(fila);
+        });
+
+        if (cartSummary) {
+            cartSummary.innerHTML = `<strong>Total:</strong> $${totalCarrito.toFixed(2)}`;
+        }
+
+        // Agregar botón para vaciar el carrito solo si hay productos
+        if (carrito.length > 0) {
+            const vaciarCarritoBtn = document.createElement("button");
+            vaciarCarritoBtn.className = "btn btn-warning vaciar-carrito";
+            vaciarCarritoBtn.innerText = "Vaciar Carrito";
+            vaciarCarritoBtn.onclick = () => {
+                if (confirm("¿Estás seguro de que deseas vaciar el carrito?")) {
+                    this.vaciarCarrito();
+                }
+            };
+            productosContainer.appendChild(vaciarCarritoBtn);
+        }
+    }
+
+    static inicializarEventos() {
+        if (!this.esPaginaCarrito()) {
+            return;
+        }
+
+        const productosContainer = document.getElementById("productos-container");
+        
+        if (productosContainer) {
+            productosContainer.addEventListener("click", (e) => {
+                const id = e.target.getAttribute("data-id");
+                
+                if (e.target.classList.contains("eliminar-producto")) {
+                    this.eliminarProducto(id);
+                }
+            });
+
+            productosContainer.addEventListener("change", (e) => {
+                if (e.target.classList.contains("quantity-input")) {
+                    const id = e.target.getAttribute("data-id");
+                    const cantidad = parseInt(e.target.value);
+                    this.actualizarCantidad(id, cantidad);
+                }
+            });
+        }
+    }
+
+    static esPaginaCarrito() {
+        return window.location.pathname.includes('carrito.html');
     }
 }
 
-// Evento de carga del documento
 document.addEventListener("DOMContentLoaded", () => {
-    renderizarCarrito();
-
-    // Manejar el evento de clic en los botones de eliminar
-    document.querySelector("tbody").addEventListener("click", (e) => {
-        if (e.target.classList.contains("btn-danger")) {
-            const id = parseInt(e.target.getAttribute("data-id"));
-            eliminarProducto(id);
-        }
-    });
-
-    // Manejar el evento de cambio en las cantidades
-    document.querySelector("tbody").addEventListener("input", (e) => {
-        if (e.target.classList.contains("quantity-input")) {
-            const id = parseInt(e.target.getAttribute("data-id"));
-            const cantidad = parseInt(e.target.value);
-            actualizarCantidad(id, cantidad);
-        }
-    });
+    if (CarritoManager.esPaginaCarrito()) {
+        CarritoManager.actualizarUI();
+        CarritoManager.inicializarEventos();
+    }
 });

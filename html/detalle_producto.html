@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Bienvenidos a VapeOn. Ofrecemos productos de vapeo de la mejor calidad. Explora nuestro catálogo y contáctanos para más información.">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <title>Detalles del Producto - VapeOn</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora nuestro catálogo de productos de vapeo. Dispositivos, líquidos y accesorios de alta calidad para una experiencia única.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Detalles del Producto - VapeOn</title>
+</head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
@@ -38,120 +38,39 @@
 
     <section class="detalle-producto py-5">
         <div class="container">
-            <div class="row product-main">
-                <div class="col-md-6 product-image">
-                    <img src="../img/img4.jpg" alt="Dispositivo Vape A" class="img-fluid">
+            <div class="product-main">
+                <div class="product-images">
+                    <img id="product-image-1" class="d-block w-100" alt="Imagen principal del producto" style="max-width: 400px; margin: 0 auto; display: block;">
                 </div>
-                <div class="col-md-6 product-info">
-                    <h2>Dispositivo Vape A</h2>
-                    <p class="lead price">$50.00</p>
-                    <p class="description">Este dispositivo de vapeo ofrece una experiencia única con su diseño ergonómico y tecnología avanzada. Ideal para usuarios principiantes y experimentados.</p>
+        
+                <!-- Información del producto -->
+                <div class="product-info">
+                    <h2 id="product-name"></h2>
+                    <p class="price" id="product-price"></p>
+                    <p class="description" id="product-description"></p>
+        
                     <div class="quantity-selector">
                         <label for="cantidad">Cantidad:</label>
                         <input type="number" id="cantidad" value="1" min="1" class="form-control quantity-input">
                     </div>
-                    <button class="btn btn-primary add-to-cart">Agregar al Carrito</button>
+        
+                    <button id="add-to-cart-btn" class="btn btn-primary mt-3">
+                        <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                    </button>
                 </div>
             </div>
-
-            <hr class="section-divider">
-
+        
             <div class="reviews-section">
                 <h3>Reseñas</h3>
-                <div class="reviews-container">
-                    <div class="review-item">
-                        <strong>Usuario1</strong>
-                        <p>¡Me encanta este dispositivo! Funciona perfectamente y tiene un gran sabor.</p>
-                    </div>
-                    <div class="review-item">
-                        <strong>Usuario2</strong>
-                        <p>Buena calidad, pero me gustaría que tuviera más opciones de color.</p>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="section-divider">
-
-            <div class="related-products">
-                <h3>Productos Relacionados</h3>
-                <div id="relatedProductsCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="product-card">
-                                        <img src="../img/img5.jpg" alt="Líquido Vape B">
-                                        <h5>Líquido Vape B</h5>
-                                        <p>$25.00</p>
-                                        <a href="#" class="btn btn-primary">Comprar</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="product-card">
-                                        <img src="../img/img6.jpg" alt="Accesorio Vape C">
-                                        <h5>Accesorio Vape C</h5>
-                                        <p>$15.00</p>
-                                        <a href="#" class="btn btn-primary">Comprar</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="product-card">
-                                        <img src="../img/img4.jpg" alt="Dispositivo Vape D">
-                                        <h5>Dispositivo Vape D</h5>
-                                        <p>$60.00</p>
-                                        <a href="#" class="btn btn-primary">Comprar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="product-card">
-                                        <img src="../img/img7.jpg" alt="Líquido Vape C">
-                                        <h5>Líquido Vape C</h5>
-                                        <p>$30.00</p>
-                                        <a href="#" class="btn btn-primary">Comprar</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="product-card">
-                                        <img src="../img/img8.jpg" alt="Accesorio Vape D">
-                                        <h5>Accesorio Vape D</h5>
-                                        <p>$20.00</p>
-                                        <a href="#" class="btn btn-primary">Comprar</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="product-card">
-                                        <img src="../img/img9.jpg" alt="Dispositivo Vape E">
-                                        <h5>Dispositivo Vape E</h5>
-                                        <p>$70.00</p>
-                                        <a href="#" class="btn btn-primary">Comprar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
+                <div id="reviews-container"></div>
             </div>
         </div>
-    </section>
+    </section>        
 
-    <footer class="text-center py-4">
+    <footer>
         <p>&copy; 2024 VapeOn. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../javascript/script.js"></script>
     <script src="../javascript/detalle_producto.js"></script>
 </body>
 </html>
