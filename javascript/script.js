@@ -72,12 +72,10 @@ function mostrarProductos(productos) {
 // Función para filtrar productos
 function filtrarProductos() {
     const marcaSeleccionada = document.getElementById('marca').value;
-    const tipoSeleccionado = document.getElementById('tipo').value;
 
     const productosFiltrados = productosGlobales.filter(producto => {
         const cumpleMarca = !marcaSeleccionada || producto.brand === marcaSeleccionada;
-        const cumpleTipo = !tipoSeleccionado || producto.type === tipoSeleccionado;
-        return cumpleMarca && cumpleTipo;
+        return cumpleMarca; // Solo filtramos por marca
     });
 
     mostrarProductos(productosFiltrados);
@@ -94,14 +92,13 @@ function inicializarEventos() {
             const producto = productosGlobales.find(p => p.id === id);
             if (producto) {
                 const carrito = CarritoManager.cargar();
- const index = carrito.findIndex(item => item.id === producto.id);
+                const index = carrito.findIndex(item => item.id === producto.id);
                 if (index === -1) {
                     carrito.push({ ...producto, quantity: 1 });
                 } else {
                     carrito[index].quantity += 1;
                 }
                 CarritoManager.guardar(carrito);
-                alert(`${producto.name} ha sido agregado al carrito.`);
             }
         });
     });

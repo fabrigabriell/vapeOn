@@ -5,10 +5,8 @@ class CarritoManager {
     static cargar() {
         try {
             const carrito = JSON.parse(localStorage.getItem(this.STORAGE_KEY)) || [];
-            console.log("Carrito cargado:", carrito);
             return carrito;
         } catch (error) {
-            console.error("Error al cargar el carrito:", error);
             return [];
         }
     }
@@ -16,9 +14,8 @@ class CarritoManager {
     static guardar(carrito) {
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(carrito));
-            console.log("Carrito guardado:", carrito);
         } catch (error) {
-            console.error("Error al guardar el carrito:", error);
+            // Manejo de error si es necesario
         }
     }
 
@@ -48,7 +45,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             const productos = await response.json();
 
             const producto = productos.find(p => p.id === productId);
-            console.log("Producto encontrado:", producto);
 
             if (producto) {
                 // Insertar los detalles en el HTML
@@ -97,15 +93,12 @@ document.addEventListener("DOMContentLoaded", async function () {
                             ...producto,
                             quantity: quantity
                         };
-                        
-                        console.log("Botón de agregar al carrito clickeado");
-                        console.log("Producto a agregar:", productoParaCarrito);
-                        
+
                         CarritoManager.agregarProducto(productoParaCarrito);
-                        alert(`${quantity} unidad(es) de ${producto.name} ha(n) sido agregada(s) al carrito.`);
+                        // Puedes agregar un mensaje visual en lugar de un alert si lo deseas
                     });
                 } else {
-                    console.error("Botón 'Agregar al carrito' no encontrado.");
+                    // Manejo de error si el botón no se encuentra
                 }
 
                 // Cargar reseñas
@@ -127,7 +120,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                 document.querySelector('.detalle-producto').innerHTML = '<h2>Producto no encontrado</h2>';
             }
         } catch (error) {
-            console.error("Error al cargar el producto:", error);
             document.querySelector('.detalle-producto').innerHTML = '<h2>Error al cargar los detalles del producto</h2>';
         }
     } else {
