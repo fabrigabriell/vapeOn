@@ -1,6 +1,7 @@
 // Constantes y variables globales
 const STORAGE_KEY = 'carrito';
 let productosGlobales = [];
+let productosOriginales = [];
 
 // Definición de CarritoManager
 const CarritoManager = {
@@ -22,6 +23,7 @@ async function cargarProductos() {
         }
         const data = await response.json();
         productosGlobales = data;
+        productosOriginales = [...data];  // Guardamos una copia de los productos sin ordenar
         mostrarProductos(data);
     } catch (error) {
         console.error('Error al cargar productos:', error);
@@ -81,13 +83,27 @@ function filtrarProductos() {
     mostrarProductos(productosFiltrados);
 }
 
+// Función para ordenar los productos por precio o no ordenar
+function ordenarPorPrecio() {
+    const orden = document.getElementById('ordenar-precio').value;
+    let productosOrdenados;
+
+    if (orden === 'asc') {
+        productosOrdenados = [...productosGlobales].sort((a, b) => a.price - b.price); // Ascendente
+    } else if (orden === 'desc') {
+        productosOrdenados = [...productosGlobales].sort((a, b) => b.price - a.price); // Descendente
+    } else {
+        productosOrdenados = [...productosOriginales]; // Volver al estado sin ordenar
+    }
+    mostrarProductos(productosOrdenados);
+}
 // Inicializar eventos
 function inicializarEventos() {
     const botonesAgregar = document.querySelectorAll(".agregar-carrito");
     botonesAgregar.forEach(boton => {
         boton.addEventListener("click", (e) => {
             e.preventDefault();
-            e.stopPropagation(); // Prevenir que el click se propague a la card
+            e.stopPropagation();
             const id = parseInt(e.target.getAttribute("data-id"));
             const producto = productosGlobales.find(p => p.id === id);
             if (producto) {
