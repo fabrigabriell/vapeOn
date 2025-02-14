@@ -95,7 +95,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                         };
 
                         CarritoManager.agregarProducto(productoParaCarrito);
-                        // Puedes agregar un mensaje visual en lugar de un alert si lo deseas
+
+                        // Mostrar alert personalizado con SweetAlert2
+                        Swal.fire({
+                            title: '¡Producto Agregado!',
+                            text: `${quantity} unidad(es) de ${producto.name} ha(n) sido agregada(s) al carrito.`,
+                            icon: 'success',
+                            background: '#ffffff',
+                            color: '#0c46e7',
+                            confirmButtonColor: '#b15e00',
+                            footer: '<span style="color: #ff7b00;">Gracias por tu compra!</span>'
+                        });
                     });
                 } else {
                     // Manejo de error si el botón no se encuentra
