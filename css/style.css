@@ -482,3 +482,15 @@ footer {
 .carousel-control-next-icon {
     filter: invert(1);
 }
+/* Whatsapp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-button img {
+    width: 60px;
+    height: 60px;
+}
