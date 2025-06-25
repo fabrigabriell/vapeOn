@@ -30,26 +30,6 @@
     "description": "Sabor intenso a mora con un toque ácido. Perfecto para los que buscan algo distinto."
   },
   {
-    "id": 4,
-    "name": "ElfBar Blue Razz B-Pop",
-    "price": 25000,
-    "image": "../img/ElfBlue40k.jpg",
-    "stock": 30,
-    "puffs": 40000,
-    "brand": "ElfBar",
-    "description": "Rico en sabor y con diseño moderno. Rendimiento potente con 40.000 puffs."
-  },
-  {
-    "id": 5,
-    "name": "ElfBar Bubbaloo Grape",
-    "price": 23000,
-    "image": "../img/ElfBuba30K.jpg",
-    "stock": 80,
-    "puffs": 30000,
-    "brand": "ElfBar",
-    "description": "Uva estilo chicle, ideal para los nostálgicos. Hasta 30.000 puffs de sabor."
-  },
-  {
     "id": 6,
     "name": "ElfBar Pineapple Dragonfruit Grapefruit",
     "price": 25000,
