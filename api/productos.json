@@ -1,82 +1,252 @@
 [
-    {
-        "id": 1,
-        "name": "Vape Device A",
-        "price": 50.00,
-        "image": "../img/img4.jpg",
-        "stock": 100,
-        "puffs": 300,
-        "brand": "Brand A",
-        "description": "Un dispositivo de vapeo de alta calidad, ideal para una experiencia suave y duradera."
-    },
-    {
-        "id": 2,
-        "name": "Vape Liquid B",
-        "price": 25.00,
-        "image": "../img/img5.jpg",
-        "stock": 50,
-        "puffs": 200,
-        "brand": "Brand B",
-        "description": "Líquido para vapeo con un sabor único, perfecto para disfrutar de cada inhalación."
-    },
-    {
-        "id": 3,
-        "name": "Vape Accessory C",
-        "price": 15.00,
-        "image": "../img/img6.jpg",
-        "stock": 75,
-        "puffs": 0,
-        "brand": "Brand C",
-        "description": "Accesorio esencial para complementar tu experiencia de vapeo."
-    },
-    {
-        "id": 4,
-        "name": "Vape Device D",
-        "price": 60.00,
-        "image": "../img/img7.jpg",
-        "stock": 30,
-        "puffs": 400,
-        "brand": "Brand D",
-        "description": "Dispositivo avanzado con una gran capacidad de vapor y un diseño ergonómico."
-    },
-    {
-        "id": 5,
-        "name": "Vape Liquid E",
-        "price": 20.00,
-        "image": "../img/img8.jpg",
-        "stock": 80,
-        "puffs": 150,
-        "brand": "Brand E",
-        "description": "Líquido con una mezcla de sabores que satisfacen los paladares más exigentes."
-    },
-    {
-        "id": 6,
-        "name": "Vape Device F",
-        "price": 55.00,
-        "image": "../img/img9.jpg",
-        "stock": 60,
-        "puffs": 350,
-        "brand": "Brand F",
-        "description": "Dispositivo confiable y de alto rendimiento para los entusiastas del vapeo."
-    },
-    {
-        "id": 7,
-        "name": "Vape Liquid G",
-        "price": 30.00,
-        "image": "../img/img10.jpg",
-        "stock": 40,
-        "puffs": 250,
-        "brand": "Brand G",
-        "description": "Líquido premium con una fórmula única que proporciona un sabor intenso y duradero."
-    },
-    {
-        "id": 8,
-        "name": "Vape Accessory H",
-        "price": 10.00,
-        "image": "../img/img11.jpg",
-        "stock": 90,
-        "puffs": 0,
-        "brand": "Brand H",
-        "description": "Accesorio de calidad para complementar tu experiencia de vapeo con estilo."
-    }
+  {
+    "id": 1,
+    "name": "ElfBar Sour Apple Candy",
+    "price": 25000,
+    "image": "../img/ElfApple40K.jpg",
+    "stock": 100,
+    "puffs": 40000,
+    "brand": "ElfBar",
+    "description": "Disfrutá de un sabor ácido y dulce con hasta 40.000 puffs. Ideal para sesiones largas."
+  },
+  {
+    "id": 2,
+    "name": "ElfBar Triple Berry Ice",
+    "price": 14500,
+    "image": "../img/ElfBerry15K.jpg",
+    "stock": 50,
+    "puffs": 15000,
+    "brand": "ElfBar",
+    "description": "Una mezcla de frutos rojos con un toque helado. Refrescante y delicioso."
+  },
+  {
+    "id": 3,
+    "name": "ElfBar Sour Blackberry Ice",
+    "price": 25000,
+    "image": "../img/ElfBlackberry40K.jpg",
+    "stock": 75,
+    "puffs": 40000,
+    "brand": "ElfBar",
+    "description": "Sabor intenso a mora con un toque ácido. Perfecto para los que buscan algo distinto."
+  },
+  {
+    "id": 4,
+    "name": "ElfBar Blue Razz B-Pop",
+    "price": 25000,
+    "image": "../img/ElfBlue40k.jpg",
+    "stock": 30,
+    "puffs": 40000,
+    "brand": "ElfBar",
+    "description": "Rico en sabor y con diseño moderno. Rendimiento potente con 40.000 puffs."
+  },
+  {
+    "id": 5,
+    "name": "ElfBar Bubbaloo Grape",
+    "price": 23000,
+    "image": "../img/ElfBuba30K.jpg",
+    "stock": 80,
+    "puffs": 30000,
+    "brand": "ElfBar",
+    "description": "Uva estilo chicle, ideal para los nostálgicos. Hasta 30.000 puffs de sabor."
+  },
+  {
+    "id": 6,
+    "name": "ElfBar Pineapple Dragonfruit Grapefruit",
+    "price": 25000,
+    "image": "../img/ElfDragon40k.jpg",
+    "stock": 60,
+    "puffs": 40000,
+    "brand": "ElfBar",
+    "description": "Exótica combinación tropical para una experiencia frutada y refrescante."
+  },
+  {
+    "id": 7,
+    "name": "ElfBar Green Apple Ice",
+    "price": 23000,
+    "image": "../img/ElfGreenApp30K.jpg",
+    "stock": 40,
+    "puffs": 30000,
+    "brand": "ElfBar",
+    "description": "Manzana verde con hielo: un clásico vibrante y duradero."
+  },
+  {
+    "id": 8,
+    "name": "ElfBar Kiwi Watermelon Apple",
+    "price": 14500,
+    "image": "../img/ElfKiwi15K.jpg",
+    "stock": 90,
+    "puffs": 15000,
+    "brand": "ElfBar",
+    "description": "Sabor frutal equilibrado. Liviano, sabroso y práctico."
+  },
+  {
+    "id": 9,
+    "name": "ElfBar Miami Mint",
+    "price": 23000,
+    "image": "../img/ElfMint30K.jpg",
+    "stock": 100,
+    "puffs": 30000,
+    "brand": "ElfBar",
+    "description": "Refrescante como la brisa de Miami. Ideal para vapear todo el día."
+  },
+  {
+    "id": 10,
+    "name": "ElfBar Passion Fruit range Guaa",
+    "price": 14500,
+    "image": "../img/ElfOra15K.jpg",
+    "stock": 50,
+    "puffs": 15000,
+    "brand": "ElfBar",
+    "description": "Trío tropical que combina dulzura y acidez a la perfección."
+  },
+  {
+    "id": 11,
+    "name": "ElfBar Strawberry Ice",
+    "price": 14500,
+    "image": "../img/ElfStraw15K.jpg",
+    "stock": 75,
+    "puffs": 15000,
+    "brand": "ElfBar",
+    "description": "Fresa con toque frío. Fresco, dulce y equilibrado."
+  },
+  {
+    "id": 12,
+    "name": "ElfBar Triple Berry",
+    "price": 25000,
+    "image": "../img/ElfSweet40K.jpg",
+    "stock": 30,
+    "puffs": 40000,
+    "brand": "ElfBar",
+    "description": "Frutos del bosque en su mejor versión. Disfrutá hasta 40.000 puffs."
+  },
+  {
+    "id": 13,
+    "name": "ElfBar Watermelon Ice",
+    "price": 23000,
+    "image": "../img/ElfWat30K.jpg",
+    "stock": 80,
+    "puffs": 30000,
+    "brand": "ElfBar",
+    "description": "Sandía helada para quienes buscan frescura en cada calada."
+  },
+  {
+    "id": 14,
+    "name": "ElfBar Sour Apple Watermelon",
+    "price": 25000,
+    "image": "../img/ElfWatApp40K.jpg",
+    "stock": 60,
+    "puffs": 40000,
+    "brand": "ElfBar",
+    "description": "Manzana y sandía con acidez justa. Ideal para los amantes de sabores únicos."
+  },
+  {
+    "id": 15,
+    "name": "ElfBar Watermelon Ice",
+    "price": 14500,
+    "image": "../img/ElfWatermelonBc10K.jpg",
+    "stock": 40,
+    "puffs": 15000,
+    "brand": "ElfBar",
+    "description": "Clásico sabor a sandía con una sensación refrescante, en formato más compacto."
+  },
+  {
+    "id": 16,
+    "name": "Lost Mary Blue Baja Splash",
+    "price": 18000,
+    "image": "../img/LostBlue20K.jpg",
+    "stock": 90,
+    "puffs": 20000,
+    "brand": "Lost Mary",
+    "description": "Notas frutales intensas. Ideal para un vapeo con mucha personalidad."
+  },
+  {
+    "id": 17,
+    "name": "Lost Mary Mango Twist",
+    "price": 18000,
+    "image": "../img/LostMango20K.jpg",
+    "stock": 100,
+    "puffs": 20000,
+    "brand": "Lost Mary",
+    "description": "Mango jugoso con un toque inesperado. Suave y sabroso."
+  },
+  {
+    "id": 18,
+    "name": "Lost Mary Kiwi Passion Fruit Guava",
+    "price": 18000,
+    "image": "../img/LostPassion20K.jpg",
+    "stock": 50,
+    "puffs": 20000,
+    "brand": "Lost Mary",
+    "description": "Explosión tropical equilibrada para un vapeo vibrante."
+  },
+  {
+    "id": 19,
+    "name": "Lost Mary Watermelon Sour Peach",
+    "price": 18000,
+    "image": "../img/LstPeach20K.jpg",
+    "stock": 20000,
+    "puffs": 0,
+    "brand": "Lost Mary",
+    "description": "Fusión de durazno ácido con sandía. Sorprendente y original."
+  },
+  {
+    "id": 20,
+    "name": "Lost Mary Watermelon Ice",
+    "price": 18000,
+    "image": "../img/LstWat20K.jpg",
+    "stock": 30,
+    "puffs": 20000,
+    "brand": "Lost Mary",
+    "description": "Fresco, dulce y potente. Todo lo que necesitás en un solo dispositivo."
+  },
+  {
+    "id": 21,
+    "name": "Vaporesso Zero S 1.0",
+    "price": 8000,
+    "image": "../img/Resi.jpg",
+    "stock": 80,
+    "puffs": 0,
+    "brand": "Resistencia",
+    "description": "Elegante y confiable. Perfecto para quienes prefieren dispositivos recargables."
+  },
+  {
+    "id": 22,
+    "name": "Salt Maskking Grape Banana Ice",
+    "price": 13000,
+    "image": "../img/SaltBanana.jpg",
+    "stock": 60,
+    "puffs": 0,
+    "brand": "Salt",
+    "description": "Uva y banana con un toque frío. Sabor exótico que no pasa desapercibido."
+  },
+  {
+    "id": 23,
+    "name": "Salt Maskking Mango Ice",
+    "price": 13000,
+    "image": "../img/SaltMang.jpg",
+    "stock": 40,
+    "puffs": 0,
+    "brand": "Salt",
+    "description": "Mango tropical con frescura. Una mezcla equilibrada y adictiva."
+  },
+  {
+    "id": 24,
+    "name": "Salt Maskking Watermelon Pineapple Ice",
+    "price": 13000,
+    "image": "../img/SaltPineapple.jpg",
+    "stock": 90,
+    "puffs": 0,
+    "brand": "Salt",
+    "description": "Sandía y ananá combinados para una experiencia dulce y refrescante."
+  },
+  {
+    "id": 25,
+    "name": "Salt Maskking Strawberry Kiwi Watermelon",
+    "price": 13000,
+    "image": "../img/SaltStrawberry.jpg",
+    "stock": 90,
+    "puffs": 0,
+    "brand": "Salt",
+    "description": "Triple sabor frutal en un solo líquido. Dulce, ácido y súper sabroso."
+  }
 ]
